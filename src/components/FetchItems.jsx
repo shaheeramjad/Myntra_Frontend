@@ -21,16 +21,12 @@ const FetchItems = () => {
         dispatch(fetchStatusActions.markFetchDone());
         dispatch(fetchStatusActions.markFetchingFinished());
         dispatch(itemsActions.addInitialItems(items));
-      })
-      .catch((error) => {
-        console.error('Error fetching items:', error);
-        dispatch(fetchStatusActions.markFetchingFinished());
       });
 
     return () => {
       controller.abort();
     };
-  }, [fetchStatus.fetchDone, dispatch]);
+  }, [fetchStatus]);
 
   return <></>;
 };
